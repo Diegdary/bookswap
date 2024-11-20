@@ -34,7 +34,7 @@ class Server {
         this.app.use('/api/libros', libro_routes_1.default);
         this.app.use('/api/transacciones', transaccion_routes_1.default);
         this.app.use('/api/trans_libros', transc_libro_routes_1.default);
-        this.app.use('/session', session_route_1.default);
+        this.app.use('/api/session', session_route_1.default);
     }
     dbconnection() {
         connection_1.default.connect((error) => {

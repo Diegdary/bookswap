@@ -35,7 +35,7 @@ class Server {
         this.app.use('/api/libros',routesLibros);
         this.app.use('/api/transacciones',routesTransacciones);
         this.app.use('/api/trans_libros',routesTrans_libro);
-        this.app.use('/session',routesSession)
+        this.app.use('/api/session',routesSession)
     }
 
     dbconnection(){

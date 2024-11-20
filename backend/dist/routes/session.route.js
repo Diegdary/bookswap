@@ -5,4 +5,6 @@ const session_controller_1 = require("../controllers/session.controller");
 const router = (0, express_1.Router)();
 router.post("/login", session_controller_1.postSession);
 router.get("/profile", session_controller_1.getSession);
+router.delete("/exit", session_controller_1.deleteExit);
+router.get("/vlogin", session_controller_1.getIslogged);
 exports.default = router;
