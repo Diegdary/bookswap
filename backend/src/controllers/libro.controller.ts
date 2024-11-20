@@ -1,14 +1,14 @@
 import connection from "../db/connection";
 import { Request, Response } from "express";
 import {ResultSetHeader, RowDataPacket} from "mysql2";
-
+ 
 export const getLibros = (req:Request, res:Response) => {
     connection.query("SELECT * FROM libro;", (error,data)=>{
         if (error) throw error;
         res.json(data);
     });
 }
-
+ 
 export const getLibro = (req:Request, res:Response) => {
     const { id } = req.params;
     connection.query<RowDataPacket[]>("SELECT * FROM libro WHERE id = ?;",id, (error,data)=>{

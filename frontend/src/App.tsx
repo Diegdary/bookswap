@@ -1,10 +1,25 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+import axios from 'axios';
 import './App.css'
 
+
+
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+  const [users, setUsers] = useState([{nombre:""}]);
+
+  const latest_users= async()=>{
+    const new_users = await axios.get("http://localhost:5000/api/usuarios/");
+    await setUsers(new_users.data);
+    console.log(new_users.data);
+  };
+
+  useEffect( () =>{
+    latest_users();
+    
+  },[]);
 
   return (
     <>
@@ -28,6 +43,10 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      {users.map((element,index)=>
+         <div>
+          {element.nombre}
+         </div>)}
     </>
   )
 }

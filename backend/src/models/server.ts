@@ -6,6 +6,9 @@ import routesTransacciones from "../routes/transaccion.routes";
 import routesTrans_libro from "./../routes/transc_libro.routes"; 
 import routesSession from "../routes/session.route";
 import cookieParser from "cookie-parser";
+import cors from "cors";
+
+
 
 class Server {
     private app: express.Application;
@@ -26,9 +29,10 @@ class Server {
     }
     //PARSE OF THE BODY
     middlewares(){
+        this.app.use(cors());
         this.app.use(express.json());
         this.app.use(cookieParser());
-    }
+    } 
 
     routes(){
         this.app.use('/api/usuarios',routesUsuarios);

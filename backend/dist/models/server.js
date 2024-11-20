@@ -11,6 +11,7 @@ const transaccion_routes_1 = __importDefault(require("../routes/transaccion.rout
 const transc_libro_routes_1 = __importDefault(require("./../routes/transc_libro.routes"));
 const session_route_1 = __importDefault(require("../routes/session.route"));
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
+const cors_1 = __importDefault(require("cors"));
 class Server {
     constructor() {
         this.app = (0, express_1.default)();
@@ -26,6 +27,7 @@ class Server {
     }
     //PARSE OF THE BODY
     middlewares() {
+        this.app.use((0, cors_1.default)());
         this.app.use(express_1.default.json());
         this.app.use((0, cookie_parser_1.default)());
     }
