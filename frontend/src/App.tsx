@@ -1,53 +1,58 @@
 import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import axios from 'axios';
-import './App.css'
-
+import './styles/App.css';
+import './index.css';
+import { redirect } from 'react-router-dom';
+import logo from './assets/Untitled-1-03.png';
 
 
 function App() {
   const [count, setCount] = useState(0);
-  const [users, setUsers] = useState([{nombre:""}]);
 
-  const latest_users= async()=>{
-    const new_users = await axios.get("http://localhost:5000/api/usuarios/");
-    await setUsers(new_users.data);
-    console.log(new_users.data);
-  };
 
-  useEffect( () =>{
-    latest_users();
-    
-  },[]);
+
+
+  const isLogged = async ()=>{
+    const {data} = await axios.post("http://localhost:5000/api/session/login",document.querySelector('#onlyform'),{
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      withCredentials: true
+    });
+  console.log(data);
+    if(data.success == 1){
+      window.location.replace("/home");
+    }
+    else{
+      document.getElementById("auth")!.innerHTML= "Usuario o contraseña incorrectos";
+    }
+  }
+
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-      {users.map((element,index)=>
+    <div className='main'>
+      <div className='nav'>
          <div>
-          {element.nombre}
-         </div>)}
-    </>
+            <img src={logo} alt="" id='logo'/>
+         </div>
+       </div>
+      <div className='content'>
+        <form method="post" id='onlyform'>
+          <h1>Iniciar Sesión</h1>
+          <section>
+            <label >E-mail</label>
+            <input type="email" id='email' name='email'/>
+          </section>
+          <section>
+            <label >Password</label>
+            <input type="password" id='password' name='password'/>
+          </section>
+          <p id='auth'></p>
+          
+          <button type='button' onClick={isLogged}>Iniciar</button>
+        </form>
+      </div>
+    </div>
   )
 }
 

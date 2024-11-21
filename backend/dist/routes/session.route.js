@@ -7,4 +7,5 @@ router.post("/login", session_controller_1.postSession);
 router.get("/profile", session_controller_1.getSession);
 router.delete("/exit", session_controller_1.deleteExit);
 router.get("/vlogin", session_controller_1.getIslogged);
+router.get("/info", session_controller_1.getInfo);
 exports.default = router;

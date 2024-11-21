@@ -1,0 +1,33 @@
+#nav{
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    gap: 1px;
+    width: 100vw;
+    height: 7vh;
+    background-color: #92400e;
+     position:sticky;
+     top: 0;
+    .nav-item{
+        display: grid;
+        place-items: center;
+        height: 100%;
+        
+        a{
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        border-radius: 10px;
+    }
+    .nav-item:hover{
+        background: #b45012;
+    }
+}
+
+
+
+#logo{
+    height: 7vh;
+    margin-left: 2px;
+  }

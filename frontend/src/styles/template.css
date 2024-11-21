@@ -1,0 +1,37 @@
+h1, h2{
+    display: block;
+    text-align: center;
+    margin: 0;
+    color: #92400e;
+    font-weight: bold;
+  }
+
+  button{
+    
+    background: #92400e;
+    border: none;
+    color: #FFFFFF;
+    border-radius: 12px;
+    outline: 1px solid #000;
+    padding: 7px;
+    font-size: 1em;
+    font-weight: bold;
+  }
+  button:hover{
+    background: #743209;
+    outline:2px solid #000000;
+  }
+
+  input{
+    height: 1.2em;
+    background: #e8d9d1;
+    border: 1.5px solid #000000;
+    border-radius: 7px;
+    padding: 5px;
+    text-align: center;
+    
+  }
+
+  p{
+    color: #FFFFFF;
+  }
