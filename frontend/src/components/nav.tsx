@@ -5,7 +5,7 @@ import logo from './../assets/Untitled-1-03.png';
 export default function Nav() {
   return (
     <div id='nav'>
-        <a className='nav-item' href="http://">
+        <a className='nav-item' href="http://localhost:5173/home">
             <img src={logo} alt="" id='logo'/>
          </a>
          <div className='nav-item'><a href="http://">Inventario</a></div>

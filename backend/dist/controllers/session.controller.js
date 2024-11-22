@@ -46,7 +46,6 @@ const getIslogged = (req, res) => {
     const { cookies } = req;
     if (!sessions.find(element => cookies.sessionId == element.sessionId)) {
         res.json({
-            success: 0,
             logged: 0,
             msg: "Not logged."
         });
@@ -54,7 +53,6 @@ const getIslogged = (req, res) => {
     }
     //
     res.json({
-        success: 0,
         logged: 1,
         msg: "Is logged."
     });
@@ -85,7 +83,7 @@ const getInfo = (req, res) => {
                 throw error;
             res.json({
                 successful: 1,
-                msg: "didn't find a log",
+                msg: "Found a log",
                 user: data[0]
             });
         });

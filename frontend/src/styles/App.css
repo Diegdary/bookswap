@@ -29,7 +29,7 @@
   background-size: cover;
 }
 
-.content{
+.content-login{
   height: 60%;
 }
 
@@ -91,4 +91,7 @@ p{color: #FF0000;}
 #logo{
   height: 7vh;
   margin-left: 2px;
+}
+#auth{
+  color: #FF0000;
 }

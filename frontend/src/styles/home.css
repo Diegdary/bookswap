@@ -1,0 +1,79 @@
+.home-main{
+    display: flex;
+    flex-direction: column;
+    height: 93vh; 
+    align-items: center;
+    h1{
+        margin: 10px;
+    };
+    
+}
+
+.look-box{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3vh;
+    width: 100%;
+        input{
+        width: 40%;
+       height: 90%;
+       border: 2px solid black;
+       font-size: 1em;
+       font-weight: 700;
+       color: #92400e;
+    }
+    
+    p{
+        color: #FFFFFF;
+        margin-left: 5px;
+    }
+    button{
+        margin-left: 5px;
+        width: 10%;
+        background: #d97706;
+    }
+}
+
+.content-home{
+    height: 60%;
+    margin-top: 60px;
+    width: 80%;
+    display: flex;
+    .both-sides{
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        padding:5px ;
+        .book-information{
+            padding: 15px;
+            width: 60%;
+            background: #e8d9d1;
+            border-radius: 13px;
+            text-align: start;
+            display: flex;
+            flex-direction: column;
+            h2{
+                margin: 10px;
+                font-size: 1.25em;
+            }
+            p{
+                font-size: 1em;
+            }
+        }
+        button{
+            color: #FFFFFF;
+            font-size: 1.25em;
+            width: 20%;
+            background: #d97706;
+        }
+    }
+    
+}
+
+.icons{
+
+}

@@ -2,7 +2,7 @@ import {useState, useEffect} from "react";
 import Nav from './components/nav';
 import pf from './assets/samuel1-01.png';
 import "./styles/profile.css";
-import axios from "axios";
+import axios, { AxiosRequestConfig } from "axios";
 
 export default function Profile() {
     const [infoUser, SetInfoUser] = useState({nombre:"",telefono:"",direccion:"",tipo:""});
@@ -17,8 +17,35 @@ export default function Profile() {
        SetInfoUser(data.user);
     }
 
+    const logOut = async ()=>{
+        const config: AxiosRequestConfig = {
+            headers:{
+                "Type-Content":"application/json"
+            },
+            withCredentials:true
+        };
+        await axios.delete("http://localhost:5000/api/session/exit",config);
+        window.location.replace("/");
+    }
+    const loggedValidation = async () => {
+        const config: AxiosRequestConfig = {
+          headers: {
+            "Content-Type": "application/json"
+          },
+          withCredentials: true
+        };
+        const logged = await axios.get("http://localhost:5000/api/session/vlogin", config);
+        console.log(logged)
+        if (logged.data.logged == 0) {
+          console.log("not logged");
+          window.location.replace("/");
+        }
+      }
+
     useEffect(()=>{
+        loggedValidation();
         getUser();
+        
     },[]);
   return (
     <>
@@ -47,6 +74,11 @@ export default function Profile() {
                         </div>
                         <div className="row">
                              <h2 id='Tipo'>Tipo: </h2><p>{infoUser.tipo}</p>
+                        </div>
+                        <div className="row logout-container">
+                             <button id="logOut" onClick={logOut}>
+                                Cerrar Sesión
+                             </button>
                         </div>
                           
                           

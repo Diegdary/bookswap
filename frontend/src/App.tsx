@@ -1,15 +1,31 @@
 import { useState, useEffect } from 'react'
-import axios from 'axios';
-import './styles/App.css';
+import axios, { AxiosRequestConfig } from 'axios';
 import './index.css';
 import { redirect } from 'react-router-dom';
 import logo from './assets/Untitled-1-03.png';
+import './styles/App.css';
 
 
 function App() {
   const [count, setCount] = useState(0);
 
+  const loggedValidation = async ()=>{
+    const config: AxiosRequestConfig = {
+      headers:{
+        "Content-Type":"application/json"
+      },
+      withCredentials:true
+    };
+    const logged = await axios.get("http://localhost:5000/api/session/vlogin",config);
+    console.log(logged)
+    if(logged.data.logged == 1){
+      window.location.replace("/home");
+    }
+  }
 
+  useEffect(()=>{
+    loggedValidation();
+  });
 
 
   const isLogged = async ()=>{
@@ -36,7 +52,7 @@ function App() {
             <img src={logo} alt="" id='logo'/>
          </div>
        </div>
-      <div className='content'>
+      <div className='content-login'>
         <form method="post" id='onlyform'>
           <h1>Iniciar Sesión</h1>
           <section>
