@@ -10,6 +10,7 @@ const libro_routes_1 = __importDefault(require("../routes/libro.routes"));
 const transaccion_routes_1 = __importDefault(require("../routes/transaccion.routes"));
 const transc_libro_routes_1 = __importDefault(require("./../routes/transc_libro.routes"));
 const session_route_1 = __importDefault(require("../routes/session.route"));
+const control_routes_1 = __importDefault(require("../routes/control.routes"));
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const cors_1 = __importDefault(require("cors"));
 class Server {
@@ -37,6 +38,7 @@ class Server {
         this.app.use('/api/transacciones', transaccion_routes_1.default);
         this.app.use('/api/trans_libros', transc_libro_routes_1.default);
         this.app.use('/api/session', session_route_1.default);
+        this.app.use('/api/control', control_routes_1.default);
     }
     dbconnection() {
         connection_1.default.connect((error) => {

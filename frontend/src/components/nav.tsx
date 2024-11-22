@@ -8,13 +8,14 @@ export default function Nav() {
         <a className='nav-item' href="http://localhost:5173/home">
             <img src={logo} alt="" id='logo'/>
          </a>
-         <div className='nav-item'><a href="http://">Inventario</a></div>
+         <div className='nav-item'><a href="http://localhost:5173/inventario/">Inventario</a></div>
          <div className='nav-item'><a href="http://">Ventas</a></div>
          <div className='nav-item'><a href="http://">Compras</a></div>
          <div className='nav-item'><a href="http://">Registrar Empleados</a></div>
+         <div className='nav-item'><a href="http://">Registrar Clientes</a></div>
          <div className='nav-item'><a href="http://">Registrar Venta</a></div>
          <div className='nav-item'><a href="http://">Registrar Compra</a></div>
-         <div className='nav-item last'><a href="/profile">Perfil</a></div>
+         <div className='nav-item last'><a href="http://localhost:5173/profile">Perfil</a></div>
          
          
          

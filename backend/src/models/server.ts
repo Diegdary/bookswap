@@ -5,6 +5,7 @@ import routesLibros from "../routes/libro.routes";
 import routesTransacciones from "../routes/transaccion.routes";
 import routesTrans_libro from "./../routes/transc_libro.routes"; 
 import routesSession from "../routes/session.route";
+import routesControl from '../routes/control.routes';
 import cookieParser from "cookie-parser";
 import cors from "cors";
 
@@ -39,7 +40,8 @@ class Server {
         this.app.use('/api/libros',routesLibros);
         this.app.use('/api/transacciones',routesTransacciones);
         this.app.use('/api/trans_libros',routesTrans_libro);
-        this.app.use('/api/session',routesSession)
+        this.app.use('/api/session',routesSession);
+        this.app.use('/api/control',routesControl)
     }
 
     dbconnection(){
